@@ -19,18 +19,9 @@ public class NewsController
     private final NewsServiceImpl newsService;
     private final NewsMapper newsMapper;
 
-    @GetMapping("/user")
-    public ResponseEntity<NewsListResponseWithCountComments> findAllByUserId(@RequestParam Long userId) {
-        NewsFilter filter = new NewsFilter();
-        filter.setUserId(userId);
-        return ResponseEntity.ok(newsMapper.newsListToNewsListResponseWithCountComments(newsService.findAllByUserId(filter)));
-    }
-
-    @GetMapping("/category")
-    public ResponseEntity<NewsListResponseWithCountComments> findAllByCategoryId(@RequestParam Long categoryId) {
-        NewsFilter filter = new NewsFilter();
-        filter.setCategoryId(categoryId);
-        return ResponseEntity.ok(newsMapper.newsListToNewsListResponseWithCountComments(newsService.findAllByCategoryId(filter)));
+    @GetMapping("/filter")
+    public ResponseEntity<NewsListResponseWithCountComments> findAllWithFilter(NewsFilter filter) {
+        return ResponseEntity.ok(newsMapper.newsListToNewsListResponseWithCountComments(newsService.findAllWithFilter(filter)));
     }
 
     @GetMapping
