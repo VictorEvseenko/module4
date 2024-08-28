@@ -36,14 +36,6 @@ public abstract class NewsMapperDelegate implements NewsMapper
     }
 
     @Override
-    public News requestToNewsForDeleting(Long id, DeletingNewsRequest request) {
-        News news = new News();
-        news.setUser(userService.findById(request.getUserId()));
-        news.setId(id);
-        return news;
-    }
-
-    @Override
     public NewsResponseWithCountComments newsToResponseWithCounts(News news) {
         NewsResponseWithCountComments newsResponseWithCountComments = new NewsResponseWithCountComments();
         newsResponseWithCountComments.setId(news.getId());

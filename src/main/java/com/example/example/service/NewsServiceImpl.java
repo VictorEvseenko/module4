@@ -1,6 +1,7 @@
 package com.example.example.service;
 
-import com.example.example.aop.CheckingMessage;
+import com.example.example.aop.CheckingNewsForDeleting;
+import com.example.example.aop.CheckingNewsForUpdating;
 import com.example.example.entities.Category;
 import com.example.example.exception.EntityNotFoundException;
 import com.example.example.entities.User;
@@ -51,7 +52,7 @@ public class NewsServiceImpl implements NewsService
     }
 
     @Override
-    @CheckingMessage
+    @CheckingNewsForUpdating
     public News update(News news)
     {
         User user = userService.findById(news.getUser().getId());
@@ -63,9 +64,9 @@ public class NewsServiceImpl implements NewsService
         return newsRepository.save(existedNews);
     }
 
-    @CheckingMessage
+    @CheckingNewsForDeleting
     @Override
-    public void deleteById(Long id, News news)
+    public void deleteById(Long id)
     {
         newsRepository.deleteById(id);
     }

@@ -1,6 +1,7 @@
 package com.example.example.service;
 
 
+import com.example.example.entities.Role;
 import com.example.example.entities.User;
 import com.example.example.model.Pagination;
 
@@ -12,9 +13,13 @@ public interface UserService
 
     User findById(Long id);
 
-    User save(User user);
+    User findByUsername(String username);
+
+    User save(User user, Role role);
 
     User update(User user);
 
     void deleteById(Long id);
+
+
 }

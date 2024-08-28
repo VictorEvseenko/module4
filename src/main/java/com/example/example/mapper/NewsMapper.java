@@ -4,7 +4,6 @@ import com.example.example.entities.News;
 import com.example.example.model.*;
 import org.mapstruct.DecoratedWith;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
 import java.util.List;
@@ -16,8 +15,6 @@ public interface NewsMapper
     News requestToNews(UpsertNewsRequest request);
 
     News requestToNews(Long id, UpsertNewsRequest request);
-
-    News requestToNewsForDeleting(Long id, DeletingNewsRequest request);
 
     NewsResponse newsToResponse(News news);
 

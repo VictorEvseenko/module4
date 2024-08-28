@@ -13,7 +13,8 @@ import java.util.List;
 public class UserResponse
 {
     private long id;
-    private String name;
+    private String username;
+    private String password;
     private List<NewsResponse> newsList = new ArrayList<>();
     private List<CommentResponse> comments = new ArrayList<>();
 }

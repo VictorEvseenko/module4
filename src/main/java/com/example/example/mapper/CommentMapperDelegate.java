@@ -1,9 +1,6 @@
 package com.example.example.mapper;
 
 import com.example.example.entities.Comment;
-import com.example.example.entities.News;
-import com.example.example.model.DeletingCommentRequest;
-import com.example.example.model.DeletingNewsRequest;
 import com.example.example.model.UpsertCommentRequest;
 import com.example.example.service.NewsServiceImpl;
 import com.example.example.service.UserServiceImpl;
@@ -30,14 +27,6 @@ public abstract class CommentMapperDelegate implements CommentMapper
     public Comment requestToComment(Long commentId, UpsertCommentRequest request) {
         Comment comment = requestToComment(request);
         comment.setId(commentId);
-        return comment;
-    }
-
-    @Override
-    public Comment requestToCommentForDeleting(Long id, DeletingCommentRequest request) {
-        Comment comment = new Comment();
-        comment.setUser(userService.findById(request.getUserId()));
-        comment.setId(id);
         return comment;
     }
 

@@ -12,8 +12,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpsertNewsRequest
 {
-    @NotNull(message = "Id пользователя должно быть указано!")
-    @Positive(message = "Id пользователя должно быть больше нуля!")
     private Long userId;
 
     @NotNull(message = "Id категории должно быть указано!")

@@ -9,5 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpsertUserRequest
 {
-    private String name;
+    private String username;
+    private String password;
 }

@@ -1,7 +1,8 @@
 package com.example.example.service;
 
 import com.example.example.BeanUtils;
-import com.example.example.aop.CheckingComment;
+import com.example.example.aop.CheckingCommentForDeleting;
+import com.example.example.aop.CheckingCommentForUpdating;
 import com.example.example.entities.Comment;
 import com.example.example.entities.News;
 import com.example.example.entities.User;
@@ -42,7 +43,7 @@ public class CommentServiceImpl implements CommentService
         return commentRepository.save(comment);
     }
 
-    @CheckingComment
+    @CheckingCommentForUpdating
     @Override
     public Comment update(Comment comment) {
         User user = userService.findById(comment.getUser().getId());
@@ -54,9 +55,9 @@ public class CommentServiceImpl implements CommentService
         return commentRepository.save(existedComment);
     }
 
-    @CheckingComment
+    @CheckingCommentForDeleting
     @Override
-    public void deleteById(Long id, Comment comment) {
+    public void deleteById(Long id) {
         commentRepository.deleteById(id);
     }
 }
